@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cyberbullying | Conscientização Digital</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #4f46e5;
+        }
+
+        .logo span {
+            color: #111827;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #4f46e5;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 70px;
+            background:
+                radial-gradient(circle at top left, #dbeafe, transparent 35%),
+                radial-gradient(circle at bottom right, #ede9fe, transparent 35%),
+                #f8fafc;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-icon {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1;
+            margin-bottom: 25px;
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #4f46e5;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 19px;
+            color: #5b6474;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 28px;
+            border-radius: 12px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(79,70,229,0.25);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #4338ca;
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: #4f46e5;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-top: 8px;
+            color: #111827;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 15px auto 0;
+            color: #6b7280;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.09);
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef2ff;
+            margin-bottom: 20px;
+        }
+
+        .icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: #4f46e5;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #626b7b;
+        }
+
+        .card ul {
+            margin-top: 15px;
+            padding-left: 20px;
+            color: #626b7b;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        /* DESTAQUE */
+        .highlight {
+            background: #111827;
+            color: white;
+            border-radius: 25px;
+            padding: 55px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .highlight h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .highlight p {
+            color: #d1d5db;
+        }
+
+        .highlight-box {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .highlight-box strong {
+            display: block;
+            color: #a5b4fc;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        /* PASSOS */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .step {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #4f46e5;
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: auto;
+            color: #e0e7ff;
+        }
+
+        .cta .btn {
+            background: white;
+            color: #4f46e5;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 800px) {
+
+            .menu {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .highlight {
+                grid-template-columns: 1fr;
+                padding: 35px 25px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 15px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            Cyber<span>Safe</span>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#o-que-e">O que é</a></li>
+            <li><a href="#exemplos">Exemplos</a></li>
+            <li><a href="#consequencias">Consequências</a></li>
+            <li><a href="#prevencao">Prevenção</a></li>
+            <li><a href="#ajuda">Ajuda</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- INÍCIO -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <!-- SVG PRINCIPAL -->
+        <svg class="hero-icon"
+             viewBox="0 0 100 100"
+             fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <path d="M50 8L84 20V45C84 67 69 84 50 92C31 84 16 67 16 45V20L50 8Z"
+                  fill="#EEF2FF"
+                  stroke="#4F46E5"
+                  stroke-width="4"/>
+
+            <path d="M50 29V52"
+                  stroke="#4F46E5"
+                  stroke-width="6"
+                  stroke-linecap="round"/>
+
+            <circle cx="50" cy="66" r="3.5" fill="#4F46E5"/>
+        </svg>
+
+        <h1>
+            Combate ao <span>Cyberbullying</span>
+        </h1>
+
+        <p>
+            Informação, respeito e responsabilidade para tornar
+            o ambiente digital mais seguro para todos.
+        </p>
+
+        <a href="#o-que-e" class="btn">
+            Conheça o projeto ↓
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- 1 -->
+
+<section id="o-que-e">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>01 — Primeiro tópico</span>
+            <h2>O que é Cyberbullying?</h2>
+
+            <p>
+                Entenda o significado desse problema e como ele
+                pode acontecer no ambiente digital.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+                    </svg>
+                </div>
+
+                <h3>Definição</h3>
+
+                <p>
+                    Cyberbullying é a prática de agressões,
+                    humilhações, ameaças ou perseguições realizadas
+                    por meio de tecnologias e plataformas digitais.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M2 12h20"/>
+                        <path d="M12 2a15 15 0 0 1 0 20"/>
+                    </svg>
+                </div>
+
+                <h3>Onde acontece?</h3>
+
+                <p>
+                    Pode ocorrer em redes sociais, aplicativos de
+                    mensagens, jogos online, fóruns, comentários,
+                    grupos e outras plataformas digitais.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 2 -->
+
+<section id="exemplos">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>02 — Segundo tópico</span>
+
+            <h2>Exemplos de Cyberbullying</h2>
+
+            <p>
+                Algumas situações que podem caracterizar
+                cyberbullying no ambiente digital.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">💬</div>
+
+                <h3>Comentários ofensivos</h3>
+
+                <p>
+                    Publicar comentários com insultos, humilhações
+                    ou ataques direcionados a outra pessoa.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📱</div>
+
+                <h3>Redes sociais</h3>
+
+                <p>
+                    Criar publicações ou perfis para ridicularizar,
+                    constranger ou atacar alguém.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">👥</div>
+
+                <h3>Exclusão intencional</h3>
+
+                <p>
+                    Utilizar grupos ou comunidades digitais para
+                    excluir ou humilhar propositalmente uma pessoa.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🎮</div>
+
+                <h3>Jogos online</h3>
+
+                <p>
+                    Ofensas, perseguições e comportamentos agressivos
+                    direcionados a jogadores.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 3 -->
+
+<section id="consequencias">
+
+    <div class="container">
+
+        <div class="highlight">
+
+            <div>
+
+                <h2>
+                    Consequências do Cyberbullying
+                </h2>
+
+                <p>
+                    As agressões digitais podem afetar diferentes
+                    áreas da vida de uma pessoa. Por isso, é importante
+                    levar essas situações a sério e buscar apoio.
+                </p>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Possíveis impactos</strong>
+
+                <p>
+                    Problemas de autoestima, isolamento social,
+                    dificuldades na escola, medo, ansiedade,
+                    insegurança e sofrimento emocional podem estar
+                    associados a situações de cyberbullying.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 4 -->
+
+<section id="prevencao">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>04 — Quarto tópico</span>
+
+            <h2>Como prevenir?</h2>
+
+            <p>
+                Pequenas atitudes podem ajudar a construir
+                uma internet mais respeitosa e segura.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="number">1</div>
+
+                <h3>Respeite</h3>
+
+                <p>
+                    Trate as outras pessoas com respeito
+                    também no ambiente digital.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="number">2</div>
+
+                <h3>Pense antes de publicar</h3>
+
+                <p>
+                    Reflita sobre as consequências antes
+                    de publicar ou compartilhar algo.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="number">3</div>
+
+                <h3>Não compartilhe</h3>
+
+                <p>
+                    Não ajude a espalhar conteúdos ofensivos
+                    ou humilhantes.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="number">4</div>
+
+                <h3>Denuncie</h3>
+
+                <p>
+                    Utilize as ferramentas de denúncia das
+                    plataformas quando necessário.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 5 -->
+
+<section id="ajuda">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>05 — Quinto tópico</span>
+
+            <h2>O que fazer?</h2>
+
+            <p>
+                Se você ou alguém próximo estiver passando
+                por uma situação de cyberbullying, algumas
+                atitudes podem ajudar.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">🛡️</div>
+
+                <h3>Guarde as evidências</h3>
+
+                <p>
+                    Se for seguro fazer isso, mantenha registros
+                    das mensagens ou publicações para ajudar
+                    a explicar o que aconteceu.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🚫</div>
+
+                <h3>Bloqueie e denuncie</h3>
+
+                <p>
+                    Utilize os recursos disponíveis na plataforma
+                    para bloquear e denunciar comportamentos
+                    inadequados.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">👨‍👩‍👧</div>
+
+                <h3>Procure ajuda</h3>
+
+                <p>
+                    Converse com um adulto de confiança, professor,
+                    responsável ou outra pessoa que possa ajudar.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">❤️</div>
+
+                <h3>Não fique sozinho</h3>
+
+                <p>
+                    Pedir ajuda é importante. Ninguém precisa
+                    enfrentar uma situação de cyberbullying sozinho.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OBJETIVO -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>Internet com respeito começa com todos nós.</h2>
+
+        <p>
+            Nosso objetivo é conscientizar sobre o cyberbullying
+            e incentivar atitudes responsáveis, respeitosas e
+            seguras no ambiente digital.
+        </p>
+
+        <a href="#inicio" class="btn">
+            Voltar ao início ↑
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        Projeto escolar — <strong>Cyberbullying</strong>
+    </p>
+
+    <p>
+        Conscientização • Respeito • Segurança Digital
+    </p>
+
+</footer>
+
+
+<script>
+
+    // Rolagem suave para os links do menu
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener('click', function(event) {
+
+            const destino = document.querySelector(
+                this.getAttribute('href')
+            );
+
+            if (destino) {
+
+                event.preventDefault();
+
+                destino.scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+            }
+
+        });
+
+    });
+
+</script>
+<footer>
+
+    <p>
+        Projeto escolar — <strong>Cyberbullying</strong>
+    </p>
+
+    <p>
+        Conscientização • Respeito • Segurança Digital
+    </p>
+
+    <p>
+        <strong>Criadores do trabalho:</strong> Gabriel, João Viana, Kaylane, Nicoly e Jonas.
+    </p>
+
+</footer>
+</body>
+</html>
